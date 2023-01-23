@@ -1,0 +1,59 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+
+    &__grid {
+        @include m.tablet { 
+            display: grid;
+            @include m.grid(2, v.$separacion);
+        }         
+    }
+    &__contenido {
+        background-color: v.$primario;
+        padding: v.$separacion;
+        display: flex; //aca se muestra de izquierda a derecha
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    &__header {
+        color: v.$blanco;
+        text-align: center;
+    }
+    &__campo {
+        margin-bottom: 1rem;
+    }
+    &__label {
+        display: block;  //toma todo el ancho disponible empujando la siguiente linea hacia abajo
+        color: v.$blanco;
+        //text-align: left; //por defecto el viene alineado a la izquierda
+        margin: 1rem 0;
+        text-transform: uppercase;
+        
+    }
+    &__input {
+        width: 100%;
+        padding: 1.5rem; //para que me crezca un polo esa casilla
+        border: none;
+        
+    }
+    &__submit {
+        margin-top: 2rem;
+        @include m.boton(v.$secundario, v.$blanco); //ya habia un mixin creado para los botones
+        @include m.tablet { 
+            width: 100%;
+        }
+    }
+    &__imagen-contenedor{
+        margin-top: v.$separacion;
+        display: flex;
+        justify-content: center;
+
+    }
+    &__imagen {
+        width: 30rem;
+        @include m.desktop { 
+            width: 100%;
+        }
+    }
+}
